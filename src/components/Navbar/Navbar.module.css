@@ -1,0 +1,30 @@
+.nav {
+    grid-area: n;
+    background-color: #c4ffff91;
+    padding: 10px;
+    border-radius: 16px 16px 16px 16px;
+  
+  
+  }
+  
+ 
+ .item {
+    font-size: 20px;
+    margin: 5px;
+    padding: 5px;
+    background-color: cadetblue;
+    text-align: center;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    transition: 0.3s ease-out;
+    cursor: pointer;
+
+  }
+  
+  nav .item:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+    color: aquamarine;
+  }
+
+  
