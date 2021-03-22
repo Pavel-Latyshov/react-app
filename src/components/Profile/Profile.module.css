@@ -1,4 +1,4 @@
-.content {
+/* .content {
     grid-area: c;
     display: grid;
     grid-template-columns: 120px 1fr;
@@ -7,9 +7,9 @@
     background-color: #b0acb0;
     border-radius: 16px 16px 16px 16px;
   
-  }
+  } */
   
-  .content img {
+img {
     width: 100px;
     height: auto;
     border-radius: 50%;

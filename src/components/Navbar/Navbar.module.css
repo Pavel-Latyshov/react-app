@@ -7,7 +7,6 @@
   
   }
   
- 
  .item {
     font-size: 20px;
     margin: 5px;
@@ -22,9 +21,12 @@
   }
   
   nav .item:hover {
-    transform: scale(1.1);
+    transform: scale(1.01);
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3);
     cursor: pointer;
     color: aquamarine;
   }
 
-  
+  a {
+    text-decoration: none;
+  }

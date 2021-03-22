@@ -27,3 +27,13 @@ body {
   grid-gap: 10px;
 
 }
+
+.app-wrapper-content {
+  grid-area: c;
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  grid-template-rows: 200px 200px;
+  padding: 10px;
+  background-color: #b0acb0;
+  border-radius: 16px 16px 16px 16px;
+}
