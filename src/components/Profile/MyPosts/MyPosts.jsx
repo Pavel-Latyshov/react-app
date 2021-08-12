@@ -1,15 +1,19 @@
 import s from './MyPosts.module.css'
 import Post from './Post/Post'
-const MyPosts = () => {
+const MyPosts = (props) => {
+  const postsElements = props.posts.map(p => <Post message={p.message} like={p.likesCount} />)
   return (
     <div>
-      <textarea></textarea>
-      <button>Add</button>
-      <div className={s.post}>
-        <Post message='Hi, sup!' like="24"/>
-        <Post message="It's my first post" like="5"/>
+      <h3>My posts</h3>
+      <div>
+        <textarea></textarea>
       </div>
-
+      <div>
+        <button>Add</button>
+      </div>
+      <div className={s.post}>
+        {postsElements}
+      </div>
     </div>
 
   )

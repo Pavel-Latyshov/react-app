@@ -1,0 +1,41 @@
+.dialogs {
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+    gap: 20px;
+
+}
+
+.dialogsItems {
+    padding: 10px;
+    background-color: wheat;
+    border-radius: 16px;
+
+}
+
+.dialogsItems .dialog {
+    padding: 5px;
+    text-align: center;
+    font-weight: 500;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    width: 100px;
+    margin: 10px;
+    border: 2px solid black;
+}
+
+.dialogsItems .active {
+    transform: scale(1.01);
+    background-color: salmon;
+    box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.3);    
+    
+}
+
+.messages {
+    padding: 10px;
+
+}
+
+.messages .message {
+    margin: 10px;
+
+}
