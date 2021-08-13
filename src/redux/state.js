@@ -1,52 +1,61 @@
-import { renderEntireTree } from "../render"
-
-const state = {
-    profilePage: {
-        posts: [
-            { id: 1, message: 'Hi, sup!', likesCount: 24 },
-            { id: 1, message: "It's my first post", likesCount: 5 },
-            { id: 1, message: "It's my first post", likesCount: 5 },
-            { id: 1, message: "It's my first post", likesCount: 5 },
-            { id: 1, message: "It's my first post", likesCount: 5 },
-        ],
-        newPostText: 'text'
+const store = {
+    _state: {
+        profilePage: {
+            posts: [
+                { id: 1, message: 'Hi, sup!', likesCount: 24 },
+                { id: 1, message: "It's my first post", likesCount: 5 },
+                { id: 1, message: "It's my first post", likesCount: 5 },
+                { id: 1, message: "It's my first post", likesCount: 5 },
+                { id: 1, message: "It's my first post", likesCount: 5 },
+            ],
+            newPostText: 'text'
+        },
+        dialogsPage: {
+            dialogs: [
+                { id: 1, name: 'Dimych' },
+                { id: 2, name: 'Vasya' },
+                { id: 3, name: 'petya' },
+                { id: 4, name: 'shish' },
+                { id: 5, name: 'bum' },
+                { id: 6, name: 'ih' },
+                { id: 7, name: 'aaaaaa' },
+            ],
+            messages: [
+                { id: 1, message: 'hi' },
+                { id: 2, message: 'sup' },
+                { id: 3, message: 'yo' },
+                { id: 4, message: 'yo' },
+                { id: 5, message: 'yo' },
+            ]
+        }
     },
-    dialogsPage: {
-        dialogs: [
-            { id: 1, name: 'Dimych' },
-            { id: 2, name: 'Vasya' },
-            { id: 3, name: 'petya' },
-            { id: 4, name: 'shish' },
-            { id: 5, name: 'bum' },
-            { id: 6, name: 'ih' },
-            { id: 7, name: 'aaaaaa' },
-        ],
-        messages: [
-            { id: 1, message: 'hi' },
-            { id: 2, message: 'sup' },
-            { id: 3, message: 'yo' },
-            { id: 4, message: 'yo' },
-            { id: 5, message: 'yo' },
-        ]
+    _callSubscriber() {
+        console.log('state has been changed');
+    },
+
+    getState() {
+        return this._state
+    },
+    subscribe(observer) {
+        this._callSubscriber = observer
+    },
+
+    dispatch(action) {
+        if (action.type === 'ADD-POST') {
+            let newPost = {
+                id: 5,
+                message: this._state.profilePage.newPostText,
+                likesCount: 0
+            }
+            this._state.profilePage.posts.push(newPost)
+            this._state.profilePage.newPostText = ''
+            this._callSubscriber(this._state)
+        } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+            this._state.profilePage.newPostText = action.newText
+            this._callSubscriber(this._state)
+        }
     }
+
 }
 
-export const addPost = () => {
-    debugger
-    let newPost = {
-        id: 5,
-        message: state.profilePage.newPostText,
-        likesCount: 0
-    }
-    state.profilePage.posts.push(newPost)
-    state.profilePage.newPostText = ''
-    renderEntireTree(state)
-}
-export const updateNewPostText = (newText) => {
-    state.profilePage.newPostText = newText
-    renderEntireTree(state)
-}
-
-
-
-export default state
+export default store
