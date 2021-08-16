@@ -5,7 +5,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
-import {Provider} from './store-context/StoreContext';
+import { Provider } from 'react-redux';
+
 
 const renderEntireTree = (state) => {
   ReactDOM.render(
